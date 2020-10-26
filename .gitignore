@@ -1,2 +1,11 @@
 .env
+*.json
+*.log
+*.ipynb
+build/
+dist/
+*.egg-info/
+venv/
+.vscode/
+.ipynb_checkpoints/
 __pycache__/
