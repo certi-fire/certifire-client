@@ -1,6 +1,6 @@
 # CertiFire
 
-## CertiFire scripts for Lemur
+## CertiFire scripts for Certifire
 
 ### usage:
 

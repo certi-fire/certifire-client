@@ -6,14 +6,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class Lemur:
+class Certifire:
     def __init__(self, 
             url: str =None, 
             uname:str =None, 
             pwd:str =None):
-        self.url = url if url else os.getenv("LEMUR_URL")
-        self.uname = uname if uname else os.getenv("LEMUR_UNAME")
-        self.pwd = pwd if pwd else os.getenv("LEMUR_PWD")
+        self.url = url if url else os.getenv("CERTIFIRE_URL")
+        self.uname = uname if uname else os.getenv("CERTIFIRE_UNAME")
+        self.pwd = pwd if pwd else os.getenv("CERTIFIRE_PWD")
         self.session = self.authenticate()
     
     def authenticate(self):
@@ -25,9 +25,9 @@ class Lemur:
             data=json.dumps({'username': self.uname, 'password': self.pwd}),
                     )
         if authResponse.status_code == 401:
-            print("Authentication to Lemur in ({0}) failed".format(self.url))
+            print("Authentication to Certifire in ({0}) failed".format(self.url))
             return None
-        print("Authentication to Lemur in ({0}) succeeded!".format(self.url))
+        print("Authentication to Certifire in ({0}) succeeded!".format(self.url))
         token = authResponse.json()['token']
         s.headers.update({'Authorization': 'Bearer ' + token})
         return s

@@ -1,9 +1,9 @@
 from argparse import ArgumentParser
 
-from lemur import Lemur
+from certifire import Certifire
 
 def argparse():
-    parser = ArgumentParser(description="CertiFire scripts for Lemur")
+    parser = ArgumentParser(description="CertiFire scripts for Certifire")
     subparsers = parser.add_subparsers()
 
     get_p = subparsers.add_parser('get')
@@ -19,7 +19,7 @@ def argparse():
 
 if __name__ == "__main__":
     args = argparse()
-    L = Lemur()
+    L = Certifire()
 
     if 'key' in args:
         print(L.getCertificates(args.key))
