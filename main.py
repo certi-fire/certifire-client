@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 from certifire import Certifire
 
 def argparse():
-    parser = ArgumentParser(description="CertiFire scripts for Certifire")
+    parser = ArgumentParser(description="Certifire client scripts for Certifire")
     subparsers = parser.add_subparsers()
 
     get_p = subparsers.add_parser('get')
@@ -23,5 +23,7 @@ if __name__ == "__main__":
 
     if 'key' in args:
         print(L.getCertificates(args.key))
+    elif 'name' in args:
+        print(L.newCert(args.name, args.owner, args.auth)["name"]+" cerated sucessfully")
     else:
-        print(L.newCert(args.name, args.owner, args.auth))
+        print("Invalid options")
